@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Web Certificate — Muhammad Tarmidzi Bariq</title>
+
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style/app.css" />
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <nav class="navbar-container" aria-label="Navigasi utama">
+            <div class="navbar-inner container">
+                <a class="brand" href="#" aria-label="Beranda">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span>My Web Certificate</span>
+                </a>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Ubah tema">
+                            🌙
+                        </button>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <section id="home" class="jumbotron">
+            <div class="inner container">
+                <h1>My Web Certificate</h1>
+                <p>Kumpulan sertifikat yang saya peroleh selama proses belajar sebagai Fullstack Developer.</p>
+                <a class="cta" href="#certificates">Lihat Sertifikat</a>
+            </div>
+        </section>
+    </header>
+
+    <main class="container" role="main">
+        <div id="content" aria-live="polite">
+            <article id="certificates" class="card">
+                <h2>Mastering SQL Fundamental: From Concept to Application</h2>
+                <figure class="media">
+                    <img src="img/1.jpeg" alt="Sertifikat Mastering SQL Fundamental dari SmartPath" loading="lazy"
+                        width="1200" height="800" />
+                </figure>
+                <p>Dasar-dasar SQL, DDL/DML, query lanjutan, dan praktik implementasi.</p>
+            </article>
+
+            <article class="card">
+                <h2>Bootcamp Node.js</h2>
+                <figure class="media">
+                    <img src="img/2.jpeg" alt="Sertifikat Bootcamp Node.js dari Wegodev" loading="lazy" width="1200"
+                        height="800" />
+                </figure>
+                <p>Pengenalan Ekosistem Node.js, REST API, dan Deploy Server</p>
+            </article>
+
+            <article class="card">
+                <h2>Membangun Toko Online (Laravel, Nuxt.js, Payment Gateway)</h2>
+                <figure class="media">
+                    <img src="img/3.jpeg"
+                        alt="Sertifikat membangun toko online dengan Laravel, Nuxt.js, dan payment gateway dari Santri Koding"
+                        loading="lazy" width="1200" height="800" />
+                </figure>
+                <p>Fullstack e-commerce: Backend Laravel, Frontend Nuxt, Integrasi Pembayaran Midtrans.</p>
+            </article>
+        </div>
+
+        <aside aria-labelledby="profile-title">
+            <div class="profile">
+                <header>
+                    <img src="img/saya-sendiri.jpeg" alt="Foto profil Muhammad Tarmidzi Bariq" loading="lazy"
+                        width="400" height="400" />
+                    <h2 id="profile-title">Muhammad Tarmidzi Bariq</h2>
+                    <p class="role">Fullstack Developer</p>
+                </header>
+
+                <section class="social">
+                    <ul aria-label="Tautan sosial">
+                        <li>
+                            <a href="https://www.linkedin.com/in/muhammad-tarmidzi-bariq-17871625a/" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/tarmidzibariq" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/tarmidzibariq" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Belajar Membuat Halaman Website Menarik</p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme");
+
+    if (currentTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        toggleBtn.textContent = "☀️";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        if (document.documentElement.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.textContent = "☀️";
+        } else {
+            localStorage.setItem("theme", "light");
+            toggleBtn.textContent = "🌙";
+        }
+    });
+</script>
+
+</html>

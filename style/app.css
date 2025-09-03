@@ -1,0 +1,323 @@
+/* ---------- Tokens ---------- */
+:root{
+  --primary:#37353E;
+  --text:#111;
+  --bg:#fff;
+  --muted:#666;
+  --surface:#f6f7f9;
+  --radius:12px;
+  --shadow:0 6px 18px rgba(0,0,0,.08);
+  --maxw:1200px;
+}
+
+.dark{
+  --primary:#8f8cff;
+  --text:#e9e9ee;
+  --bg:#0f1115;
+  --muted:#b3b3bd;
+  --surface:#151821;
+  --shadow:0 6px 18px rgba(0,0,0,.6);
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100svh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(100, 108, 255, .45);
+    border-radius: 8px;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+/* ---------- Navbar ---------- */
+header .navbar-container {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(127, 127, 127, .15);
+}
+
+header .navbar-container .navbar-inner {
+    width: 100%;
+    padding-block: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 700;
+}
+
+.brand .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--primary);
+    display: inline-block;
+}
+
+header .navbar-container .nav-list {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center; /* ini yang bikin isi <li> rata tengah vertikal */
+}
+
+header .navbar-container .nav-list li a {
+    padding: .55rem .9rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: transform .15s ease, background-color .15s ease;
+}
+
+header .navbar-container .nav-list li a:hover {
+    background: var(--surface);
+    transform: translateY(-1px);
+}
+.theme-toggle{
+  border:none;
+  background:transparent;
+  font-size:1.3rem;
+  cursor:pointer;
+  padding:.4rem .6rem;
+  border-radius:8px;
+  transition:background-color .2s ease;
+}
+.theme-toggle:hover{
+  background:var(--surface);
+}
+
+/* ---------- Jumbotron ---------- */
+header .jumbotron {
+    margin: 1.25rem auto 2rem auto;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+header .jumbotron .inner {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+header .jumbotron h1 {
+    margin: 0 0 .75rem 0;
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+}
+
+header .jumbotron p {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.05rem;
+    opacity: .95;
+}
+
+header .jumbotron .cta {
+    display: inline-block;
+    font-weight: 600;
+    background: #fff;
+    color: var(--primary);
+    padding: .65rem 1.1rem;
+    border-radius: 10px;
+    transition: transform .15s ease;
+}
+
+header .jumbotron .cta:hover {
+    transform: translateY(-1px);
+}
+
+/* ---------- Main Layout ---------- */
+main {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start; /* biar konten dan aside sejajar di atas */
+}
+
+/* konten di sebelah kiri lebih lebar */
+main #content {
+  flex: 1; /* ambil ruang tersisa */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+aside {
+  flex: 0 0 320px; /* fix width 320px */
+}
+
+/* Responsive breakpoint */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    order: -1; 
+    flex: unset; 
+  }
+}
+
+/* ---------- Content & Cards ---------- */
+
+main #content .card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(127, 127, 127, .12);
+    padding: 1.1rem;
+}
+
+main #content .card h2 {
+    margin: 0 0 .5rem 0;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.media {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: .5rem auto 1rem;
+    max-width: 100%;
+    width: min(100%, 720px);
+    aspect-ratio: 3 / 2;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+main #content .card p {
+    margin: 0;
+    line-height: 1.65;
+    font-weight: 300;
+    text-align: justify;
+}
+
+
+/* ---------- Aside Profile ---------- */
+aside {
+    /* position: sticky; */
+    top: 76px;
+}
+
+.profile {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(127, 127, 127, .12);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto .8rem;
+}
+
+.profile .role {
+    color: var(--muted);
+    margin: .25rem 0 0 0;
+}
+
+.social ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    justify-content: center;
+}
+
+.social a {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem .75rem;
+    border-radius: 999px;
+    background: var(--primary);
+    border: 1px solid rgba(127, 127, 127, .18);
+    transition: transform .15s ease, background-color .15s ease;
+}
+
+.social a:hover {
+    background: var(--bg);
+    transform: translateY(-1px);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(127, 127, 127, .15);
+    background: var(--bg);
+}
+
+.site-footer .container {
+    padding: 1rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* ---------- Small Tweaks ---------- */
+[id] {
+    scroll-margin-top: 88px;
+}
+
+/* anchor offset saat klik nav */
